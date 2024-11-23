@@ -1,0 +1,8 @@
+POST {{host}}/api/generate/json
+Content-Type: application/json;charset=UTF-8
+
+{
+  "prompt": "I want to find top-10 books about world history",
+  "max_tokens": 500,
+  "temperature": 2.5
+}
