@@ -1,0 +1,19 @@
+### Get JSON response
+POST {{host}}/api/generate/json
+Content-Type: application/json;charset=UTF-8
+
+{
+  "prompt": "I want to find top-10 books about world history",
+  "max_tokens": 500,
+  "temperature": 0.5
+}
+
+### Get JSON response with history
+POST {{host}}/api/generate/json/history
+Content-Type: application/json;charset=UTF-8
+
+{
+  "prompt": "I want to find top-10 books about world history",
+  "max_tokens": 500,
+  "temperature": 0.5
+}
