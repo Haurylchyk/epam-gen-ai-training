@@ -54,12 +54,12 @@ public class OpenAIService {
         return receiveBooks(result);
     }
 
-    public List<BookDto> getJsonResponseWithHistory(OpenAIChatRequest chatRequest) {
+    public String getTextResponseWithHistory(OpenAIChatRequest chatRequest) {
         log.info(INPUT_LOG_PREFIX, chatRequest.getInput());
         String userInput = chatRequest.getInput();
         PromptExecutionSettings settings = createPromptExecutionSettings(chatRequest);
 
-        chatHistory.addUserMessage(createJsonPrompt(userInput));
+        chatHistory.addUserMessage(userInput);
 
         List<ChatMessageContent<?>> response = chatCompletionService
                 .getChatMessageContentsAsync(
@@ -74,7 +74,7 @@ public class OpenAIService {
         chatHistory.addAssistantMessage(result);
         log.info(RESULT_LOG_PREFIX, result);
         log.info(HISTORY_LOG_PREFIX, chatHistory.getMessages().size());
-        return receiveBooks(result);
+        return result;
     }
 
     private PromptExecutionSettings createPromptExecutionSettings(OpenAIChatRequest openAIChatRequest) {

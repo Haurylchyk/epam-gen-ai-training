@@ -12,7 +12,7 @@ import static com.epam.training.gen.ai.validation.ValidationConstants.MAX_TOKENS
 import static com.epam.training.gen.ai.validation.ValidationConstants.MAX_TOKENS_MAX_VALUE_ERROR;
 import static com.epam.training.gen.ai.validation.ValidationConstants.MAX_TOKENS_MIN_VALUE;
 import static com.epam.training.gen.ai.validation.ValidationConstants.MAX_TOKENS_MIN_VALUE_ERROR;
-import static com.epam.training.gen.ai.validation.ValidationConstants.PROMPT_NOT_NULL;
+import static com.epam.training.gen.ai.validation.ValidationConstants.INPUT_NOT_NULL;
 import static com.epam.training.gen.ai.validation.ValidationConstants.TEMPERATURE_MAX_VALUE;
 import static com.epam.training.gen.ai.validation.ValidationConstants.TEMPERATURE_MAX_VALUE_ERROR;
 import static com.epam.training.gen.ai.validation.ValidationConstants.TEMPERATURE_MIN_VALUE;
@@ -26,7 +26,7 @@ public class OpenAIChatRequest {
     /**
      * prompt is a set of instructions given to an AI system to perform a task.
      */
-    @NotNull(message = PROMPT_NOT_NULL)
+    @NotNull(message = INPUT_NOT_NULL)
     @JsonProperty("input")
     private String input;
 

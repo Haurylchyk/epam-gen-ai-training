@@ -25,9 +25,10 @@ public class OpenAIController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/json/history")
-    public ResponseEntity<List<BookDto>> getJsonResponseWithHistory(@RequestBody OpenAIChatRequest chatRequest) {
-        List<BookDto> response = openAIService.getJsonResponseWithHistory(chatRequest);
+    @PostMapping("/text/history")
+    public ResponseEntity<String> getTextResponseWithHistory(@RequestBody OpenAIChatRequest chatRequest) {
+        String response = openAIService.getTextResponseWithHistory(chatRequest);
         return ResponseEntity.ok(response);
     }
 }
+

@@ -6,6 +6,7 @@ import com.azure.core.credential.AzureKeyCredential;
 import com.epam.training.gen.ai.validation.ValidationConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.semantickernel.Kernel;
+import com.microsoft.semantickernel.aiservices.openai.chatcompletion.OpenAIChatCompletion;
 import com.microsoft.semantickernel.orchestration.PromptExecutionSettings;
 import com.microsoft.semantickernel.services.chatcompletion.ChatCompletionService;
 import com.microsoft.semantickernel.services.chatcompletion.ChatHistory;
@@ -34,7 +35,7 @@ public class OpenAIConfig {
 
     @Bean
     public ChatCompletionService chatCompletionService(OpenAIAsyncClient openAIAsyncClient) {
-        return ChatCompletionService.builder()
+        return OpenAIChatCompletion.builder()
                 .withModelId(modelId)
                 .withOpenAIAsyncClient(openAIAsyncClient)
                 .build();
