@@ -4,7 +4,6 @@ import com.azure.ai.openai.OpenAIAsyncClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
 import com.epam.training.gen.ai.validation.ValidationConstants;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.semantickernel.orchestration.PromptExecutionSettings;
 import com.microsoft.semantickernel.services.chatcompletion.ChatCompletionService;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,13 +44,8 @@ public class OpenAIConfig {
     }
 
     @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
-    }
-
-    @Bean
     public List<String> validDeploymentNames(
-            @Value("${client-azureopenai-valid-deployment-names}") String validDeploymentNames) {
+            @Value("${client-azureopenai-valid-models}") String validDeploymentNames) {
         return Arrays.asList(validDeploymentNames.split(","));
     }
 

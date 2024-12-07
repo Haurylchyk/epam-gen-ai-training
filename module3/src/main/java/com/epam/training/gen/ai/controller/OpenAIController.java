@@ -1,6 +1,5 @@
 package com.epam.training.gen.ai.controller;
 
-import com.epam.training.gen.ai.dto.BookDto;
 import com.epam.training.gen.ai.dto.OpenAIChatRequest;
 import com.epam.training.gen.ai.service.OpenAIService;
 import jakarta.validation.Valid;
@@ -26,9 +25,9 @@ public class OpenAIController {
         return ResponseEntity.ok(openAIService.getModels());
     }
 
-    @PostMapping("/generate/json")
-    public ResponseEntity<List<BookDto>> getJsonResponseWithSettings(@Valid @RequestBody OpenAIChatRequest openAIChatRequest) {
-        List<BookDto> response = openAIService.receiveBookList(openAIChatRequest);
+    @PostMapping("/generate/text")
+    public ResponseEntity<String> getJsonResponseWithSettings(@Valid @RequestBody OpenAIChatRequest openAIChatRequest) {
+        String response = openAIService.getTextResponse(openAIChatRequest);
         return ResponseEntity.ok(response);
     }
 }
