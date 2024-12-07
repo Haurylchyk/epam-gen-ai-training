@@ -5,7 +5,7 @@ import com.epam.training.gen.ai.dto.OpenAIChatRequest;
 import com.epam.training.gen.ai.dto.OpenAIModel;
 import com.epam.training.gen.ai.dto.OpenAIModelList;
 import com.epam.training.gen.ai.exception.OpenAIException;
-import com.epam.training.gen.ai.validation.DeploymentNameValidator;
+import com.epam.training.gen.ai.validation.ModelNameValidator;
 import com.epam.training.gen.ai.validation.ValidationConstants;
 import com.microsoft.semantickernel.Kernel;
 import com.microsoft.semantickernel.orchestration.FunctionResult;
@@ -29,7 +29,7 @@ public class OpenAIService {
     private String azureClientKey;
 
     private final ChatCompletionService.Builder chatCompletionServiceBuilder;
-    private final DeploymentNameValidator deploymentNameValidator;
+    private final ModelNameValidator modelNameValidator;
     private final OpenAIClient openAIClient;
 
     public List<String> getModels() {
@@ -47,7 +47,7 @@ public class OpenAIService {
 
     public String getTextResponse(OpenAIChatRequest request) {
         String deploymentName = Optional.ofNullable(request.getDeploymentName())
-                .filter(deploymentNameValidator::isValid)
+                .filter(modelNameValidator::isValid)
                 .orElseThrow(() -> new OpenAIException(ValidationConstants.INVALID_DEPLOYMENT_NAME));
 
         FunctionResult<Object> response = invokePrompt(

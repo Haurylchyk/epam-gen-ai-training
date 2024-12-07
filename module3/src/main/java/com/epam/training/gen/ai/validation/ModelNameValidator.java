@@ -7,11 +7,11 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class DeploymentNameValidator {
+public class ModelNameValidator {
 
-    private final List<String> validDeploymentNames;
+    private final List<String> validModelNames;
 
     public boolean isValid(String value) {
-        return validDeploymentNames.contains(value);
+        return validModelNames.contains(value);
     }
 }
