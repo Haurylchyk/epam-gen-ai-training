@@ -1,0 +1,8 @@
+### Get Weather Forecast URL
+
+POST {{host}}/api/forecast/weather
+Content-Type: application/json;charset=UTF-8
+
+{
+  "query": "Hyderabad"
+}

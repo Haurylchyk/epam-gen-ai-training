@@ -1,0 +1,17 @@
+### Calculate age from date
+
+POST {{host}}/api/calculate/age
+Content-Type: application/json;charset=UTF-8
+
+{
+  "query": "My birthday is 1988-08-08"
+}
+
+### Validate empty query
+
+POST {{host}}/api/calculate/age
+Content-Type: application/json;charset=UTF-8
+
+{
+  "query": ""
+}
