@@ -12,8 +12,8 @@
     <groupId>com.epam.training.gen.ai</groupId>
     <artifactId>gen_ai_training</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gen_ai_training_module2</name>
-    <description>This is the second module of course GenAI Practical Application Development using Java</description>
+    <name>gen_ai_training_module3</name>
+    <description>This is the fourth module of course GenAI Practical Application Development using Java</description>
     <url>https://github.com/Haurylchyk/epam-gen-ai-training</url>
 
     <properties>
